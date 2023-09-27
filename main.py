@@ -18,7 +18,7 @@ with st.form('Calculo de Preços'):
         gramatura_chocolate = st.text_input(label='Gramatura do Chocolate', value=1010)
         gramatura_ninho = st.text_input(label='Gramatura do Leite em pó', value=400)
         valor_turista = st.text_input(label='Valor de venda para Turistas',value=12)
-        submit = st.form_submit_button('Calcular')
+
 
     with col3:
         usado_milho = st.text_input(label='Milho na Receita', value=250)
@@ -26,6 +26,7 @@ with st.form('Calculo de Preços'):
         usado_chocolate = st.text_input(label='Chocolate na Receita', value=330)
         usado_ninho = st.text_input(label='Leite em pó na Receita', value=200)
         quantidade = st.text_input(label='Rendimento da Receita', value=10)
+        submit = st.form_submit_button('Calcular')
 
 if submit:
     milho = (float(valor_milho) / float(gramatura_milho)) * float(usado_milho)
