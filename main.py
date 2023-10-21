@@ -1,4 +1,5 @@
 import streamlit as st
+import mysql.connector
 
 st.set_page_config(page_title='Calculador de Preços')
 
@@ -30,6 +31,7 @@ with st.expander('Gramatura da receita'):
 submit = st.button('Calcular')
 
 if submit:
+
     milho = (float(valor_milho) / float(gramatura_milho)) * float(usado_milho)
     açucar = (float(valor_açucar) / float(gramatura_açucar)) * float(usado_açucar)
     chocolate = (float(valor_chocolate) / float(gramatura_chocolate)) * float(usado_chocolate)
@@ -44,6 +46,8 @@ if submit:
     resultado_receita = resultado / rendimento
     lucro_local = float(valor_local) - resultado_receita
     lucro_turista = float(valor_turista) - resultado_receita
+    if valor_milho == '':
+        st.error('Informe o valor pago no milho!')
 
     st.subheader('Custo dos ingredientes na receita:')
     st.write(f'Valor do Milho = R$ {milho:.2f}'.replace('.',','))
